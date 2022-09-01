@@ -1,0 +1,5 @@
+### -----------------------
+### --- gateway API cms ---
+### -----------------------
+cms.gateway.url=@cms.gateway.url@
+

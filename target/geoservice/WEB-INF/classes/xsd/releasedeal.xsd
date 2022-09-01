@@ -1,0 +1,77 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="UseType" type="xs:string"/>
+  <xs:element name="StartDate" type="xs:date"/>
+  <xs:element name="StartDateTime" type="xs:date"/>
+  <xs:element name="EndDate" type="xs:date"/>
+  <xs:element name="EndDateTime" type="xs:date"/>
+  <xs:element name="CommercialModelType" type="xs:string"/>
+  <xs:element name="Usage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="UseType" maxOccurs="unbounded" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TerritoryCode" type="xs:string"/>
+  <xs:element name="ValidityPeriod">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="StartDate" minOccurs="0"/>
+        <xs:element ref="StartDateTime" minOccurs="0"/>
+        <xs:element ref="EndDate" minOccurs="0"/>
+        <xs:element ref="EndDateTime" minOccurs="0"/>        
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReleaseDisplayStartDate" type="xs:date"/>
+  <xs:element name="TrackListingPreviewStartDate" type="xs:date"/>
+  <xs:element name="CoverArtPreviewStartDate" type="xs:date"/>
+  <xs:element name="ClipPreviewStartDate" type="xs:date"/>
+  <xs:element name="DealTerms">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="CommercialModelType"/>
+        <xs:element ref="Usage"/>
+        <xs:element ref="TerritoryCode"/>
+        <xs:element ref="PriceInformation" minOccurs="0"/>
+        <xs:element ref="ValidityPeriod"/>
+        <xs:element ref="ReleaseDisplayStartDate"/>
+        <xs:element ref="TrackListingPreviewStartDate"/>
+        <xs:element ref="CoverArtPreviewStartDate"/>
+        <xs:element ref="ClipPreviewStartDate"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PriceType">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute type="xs:string" name="Namespace" use="optional"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PriceInformation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="PriceType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DealReleaseReference" type="xs:string"/>
+  <xs:element name="Deal">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="DealTerms"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReleaseDeal">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="DealReleaseReference"/>
+        <xs:element ref="Deal" maxOccurs="unbounded" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

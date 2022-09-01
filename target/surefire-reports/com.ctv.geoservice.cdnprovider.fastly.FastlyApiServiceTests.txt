@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.ctv.geoservice.cdnprovider.fastly.FastlyApiServiceTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.934 s - in com.ctv.geoservice.cdnprovider.fastly.FastlyApiServiceTests

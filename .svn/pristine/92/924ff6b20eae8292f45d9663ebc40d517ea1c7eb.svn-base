@@ -1,0 +1,30 @@
+# ####################################
+# Application Configuration Properties
+# This file is expected to contain all the application level configuration properties, such as logging parameters,
+# app's version, cron scheduling rules, field and typologies values, etc.
+
+logging.level.org.springframework.web: WARN
+logging.level.org.springframework.contect.annotation: WARN
+
+logging.file=/var/log/agile/agilelang.microservices/agile.geoservice.log
+logging.pattern.console=%d{yyyy-MM-dd HH:mm:ss} [%-5level] - %msg%n
+
+application.version=@project.version@
+
+# UID del campo de la tipología de ASSETs que tiene el contenido de los deals en formato DDEX
+application.deals.ddex.field=DDEX_DEALS
+
+# #################### #
+# FASTLY CONFIGURATION #
+
+# Main entry point for Fastly API
+application.fastly.api.url=https://api.fastly.com/
+
+# Token necesario para operar con los diccionarios de Fastly
+application.fastly.api.token=@fastly.api.token@
+
+# Service ID
+application.fastly.api.serviceid=@fastly.api.serviceid@
+
+# Dictionary id
+application.fastly.api.dictionaryid=@fastly.api.dictionaryid@

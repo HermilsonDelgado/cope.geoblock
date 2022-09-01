@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<jaxb:bindings xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" if-exists="true" version="2.1">
+  <!--
+
+Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.2.11 
+Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
+Generado el: 2022.08.30 a las 02:25:05 PM COT 
+
+  -->
+  <jaxb:bindings if-exists="true" scd="x-schema::">
+    <jaxb:schemaBindings map="false">
+      <jaxb:package name="com.ctv.publisher.model.releasedeal"/>
+    </jaxb:schemaBindings>
+    <jaxb:bindings if-exists="true" scd="Usage">
+      <jaxb:class ref="com.ctv.publisher.model.releasedeal.Usage"/>
+    </jaxb:bindings>
+    <jaxb:bindings if-exists="true" scd="ValidityPeriod">
+      <jaxb:class ref="com.ctv.publisher.model.releasedeal.ValidityPeriod"/>
+    </jaxb:bindings>
+    <jaxb:bindings if-exists="true" scd="DealTerms">
+      <jaxb:class ref="com.ctv.publisher.model.releasedeal.DealTerms"/>
+    </jaxb:bindings>
+    <jaxb:bindings if-exists="true" scd="PriceInformation">
+      <jaxb:class ref="com.ctv.publisher.model.releasedeal.PriceInformation"/>
+    </jaxb:bindings>
+    <jaxb:bindings if-exists="true" scd="PriceType">
+      <jaxb:class ref="com.ctv.publisher.model.releasedeal.PriceType"/>
+    </jaxb:bindings>
+    <jaxb:bindings if-exists="true" scd="Deal">
+      <jaxb:class ref="com.ctv.publisher.model.releasedeal.Deal"/>
+    </jaxb:bindings>
+    <jaxb:bindings if-exists="true" scd="ReleaseDeal">
+      <jaxb:class ref="com.ctv.publisher.model.releasedeal.ReleaseDeal"/>
+    </jaxb:bindings>
+  </jaxb:bindings>
+</jaxb:bindings>

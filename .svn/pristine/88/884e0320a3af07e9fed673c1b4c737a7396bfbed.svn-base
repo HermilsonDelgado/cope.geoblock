@@ -1,0 +1,20 @@
+# Project configuration
+# This file is expected to contain the business logic the application should follow to geolocalize resources in our CDNs.
+# It should mainly contain a list of deliveries with their corresponding attributes such as uid, dealing and cdn providers, etc.
+
+configuration:
+  locale: "es"
+  deliveries:
+    -
+      name: "Warner"
+      delivery: "P_MSESWM"
+      cdnProvider: "fastly"
+      deals: "ddex"
+      commercialModelType: "SubscriptionModel"
+      useType: "OnDemandStream"
+
+#    -
+#      name: "Agile Channel"
+#      delivery: "P_AGILE"
+#      cdnProvider: "samplecdn"
+#      deals: "ddex"

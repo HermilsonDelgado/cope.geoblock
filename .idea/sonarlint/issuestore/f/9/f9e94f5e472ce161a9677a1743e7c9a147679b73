@@ -1,0 +1,40 @@
+
+–
+java:S1192«"zDefine a constant instead of duplicating this literal "No se ha podido conectar con FASTLY. Mensaje del error: '" 3 times.(³Á°÷üÿÿÿÿ
+a
+java:S1192y"FDefine a constant instead of duplicating this literal "UTF-8" 3 times.(µŒ‹ÿÿÿÿÿ
+c
+java:S1192i"MDefine a constant instead of duplicating this literal "/dictionary/" 3 times.(ŠğÊ×
+_
+java:S1192i"IDefine a constant instead of duplicating this literal "service/" 3 times.(ŠğÊ×
+Q
+java:S1141•"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ
+Q
+java:S1141¥"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ
+b
+java:S1301Ú"KReplace this "switch" statement by "if" statements to increase readability.(ãØ´ú
+w
+java:S1488Æ"`Immediately return this expression instead of assigning it to the temporary variable "response".(Ğ¦…Ã
+?
+java:S2629Z"$Invoke method(s) only conditionally.(şì£“ûÿÿÿÿ
+;
+java:S2629ˆ"$Invoke method(s) only conditionally.(À¼„
+;
+java:S2629’"$Invoke method(s) only conditionally.(À¼„
+;
+java:S2629 "$Invoke method(s) only conditionally.(À¼„
+T
+java:S4719y"9Replace charset name argument with StandardCharsets.UTF_8(µŒ‹ÿÿÿÿÿ
+P
+java:S4719"9Replace charset name argument with StandardCharsets.UTF_8(î¿şË
+P
+java:S4719‹"9Replace charset name argument with StandardCharsets.UTF_8(ÉÖÃÎ
+o
+java:S2139 "XEither log this exception and handle it, or rethrow it with some contextual information.(à®¿­
+I
+java:S1905Á"-Remove this unnecessary cast to "JSONObject".(¯Æ“Şüÿÿÿÿ
+o	java:S131Ú"YComplete cases by adding the missing enum constants or add a default case to this switch.(ãØ´ú
+o
+java:S2139î"XEither log this exception and handle it, or rethrow it with some contextual information.(à®¿­
+x
+java:S3457ù"aNo need to call "toString()" method as formatting and string conversion is done by the Formatter.(‡äéØ

@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.ctv</groupId>
+	<artifactId>geoservice</artifactId>
+	<version>1.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+
+	<name>agilelang-geoservice</name>
+	<description>Geolocalization service for Agile Languages</description>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.0.3.RELEASE</version>
+		<relativePath /> <!-- lookup parent from repository -->
+	</parent>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+	</properties>
+
+	<scm>
+		<connection>scm:svn:http://developer.communi.tv/agilelang/svn/agilelang.geoservice/trunk</connection>
+		<developerConnection>scm:svn:http://developer.communi.tv/agilelang/svn/agilelang.geoservice/trunk
+        </developerConnection>
+		<url>http://developer.communi.tv/agilelang/svn/agilelang.geoservice/trunk</url>
+	</scm>
+
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<!-- Create a Deployable War File - https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#howto-create-a-deployable-war-file -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>ctv</groupId>
+			<artifactId>dfcapi-client</artifactId>
+			<version>1.10.0</version>
+		</dependency>
+		<dependency>
+			<groupId>ctv</groupId>
+			<artifactId>dfcapi-common</artifactId>
+			<version>1.10.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20160810</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<finalName>geoservice</finalName>
+		<resources>
+			<resource>
+				<filtering>true</filtering>
+				<directory>src/main/resources</directory>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<configuration>
+					<attach>false</attach>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+
+			<!-- para autogenerar las clases de los DDEX DEALS -->
+			<plugin>
+				<groupId>org.jvnet.jaxb2.maven2</groupId>
+				<artifactId>maven-jaxb2-plugin</artifactId>
+				<version>0.13.1</version>
+				<executions>
+					<execution>
+						<id>schema-security</id>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<schemaLanguage>WSDL</schemaLanguage>
+							<generatePackage>com.ctv.publisher.security.etb.wsdl</generatePackage>
+							<schemas>
+								<schema>
+									<url>http://etbserver.etb.co/autentificacion/AuthUnified.asmx?WSDL</url>
+								</schema>
+							</schemas>
+						</configuration>
+					</execution>
+					<execution>
+						<id>schema-deal</id>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<generatePackage>com.ctv.publisher.model.releasedeal</generatePackage>
+							<generateDirectory>${project.build.directory}/generated-sources/releasedeal
+							</generateDirectory>
+							<schemaDirectory>${basedir}/src/main/resources/xsd</schemaDirectory>
+							<schemaIncludes>
+								<include>releasedeal.xsd</include>
+							</schemaIncludes>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+
+	</build>
+
+	<profiles>
+		<profile>
+			<activation>
+				<activeByDefault />
+			</activation>
+			<id>local</id>
+			<!-- profile to run this process in local environments -->
+			<properties>
+				<cms.gateway.url>http://ae-cms-dev.communi.tv:8800/services/JavaGateway</cms.gateway.url>
+				<fastly.api.token>a1d3166c1c3fa8b1505fb21b904f5972</fastly.api.token>
+				<fastly.api.serviceid>1gxK4w2oSDvr2sTiwRdF26</fastly.api.serviceid>
+				<fastly.api.dictionaryid>6CWFwFLagzhRbcqADt7Ege</fastly.api.dictionaryid>
+			</properties>
+		</profile>
+		
+		
+		<profile>
+			<id>dev</id>
+			<!-- profile to run this process in local environments -->
+			<properties>
+				<cms.gateway.url>http://127.0.0.1:8800/services/JavaGateway</cms.gateway.url>
+				<fastly.api.token>a1d3166c1c3fa8b1505fb21b904f5972</fastly.api.token>
+				<fastly.api.serviceid>1gxK4w2oSDvr2sTiwRdF26</fastly.api.serviceid>
+				<fastly.api.dictionaryid>6CWFwFLagzhRbcqADt7Ege</fastly.api.dictionaryid>
+			</properties>
+		</profile>
+		
+		
+		<profile>
+			<id>pre</id>
+			<!-- profile to run this process in local environments -->
+			<properties>
+				<cms.gateway.url>http://127.0.0.1:8800/services/JavaGateway</cms.gateway.url>
+				<fastly.api.token>NKQ33Ec67cJjCtn_NY83UOd0lfHU6tw7</fastly.api.token>
+				<fastly.api.serviceid>7NEcPjTF8vGLXVPEtUZ3Qs</fastly.api.serviceid>
+				<fastly.api.dictionaryid>47CKZGBAYY1h36xUKGy5bb</fastly.api.dictionaryid>
+			</properties>
+		</profile>
+		
+		
+		<profile>
+			<id>pro</id>
+			<!-- profile to run this process in local environments -->
+			<properties>
+				<cms.gateway.url>http://127.0.0.1:8800/services/JavaGateway</cms.gateway.url>
+				<fastly.api.token>PwSG5U6T8YFyZgkm6VRb4VnfQm6xfm2v</fastly.api.token>
+				<fastly.api.serviceid>6Ewf7bxiS5yBQOWj0Jn3V0</fastly.api.serviceid>
+			 <fastly.api.dictionaryid>1UCKQKDAfKXEJMSE0YJlJp</fastly.api.dictionaryid>
+			</properties>
+		</profile>
+		
+	</profiles>
+
+</project>

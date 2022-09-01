@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+</head>
+<body>
+<h1>Geolocalization Service console</h1>
+<p th:text="${version}"></p>
+
+<h2>Basic info</h2>
+
+<h2>Available operations</h2>
+<h3>Geolocalization rules being applied right now:</h3><a href="/ondemand/getGeolocalizationRules" target="_blank">open in new window</a>
+
+<h3>Query a single resource path</h3>
+<form action="/ondemand/getSingleGeolocalizationRule">
+<select id="delivery" th:each="delivery : ${deliveries}">
+    <option th:value="${delivery.getDelivery()}" th:text="${delivery.getName()}"></option>
+</select>
+<input type="text" id="resource" style="width: 200px;" /> <input type="submit" value="submit">
+<p> Value: </p>
+<div id="resourceQueryPathResponse" style="border: thin solid gray; height: 20px;"></div>
+</form>
+
+</body>
+</html>

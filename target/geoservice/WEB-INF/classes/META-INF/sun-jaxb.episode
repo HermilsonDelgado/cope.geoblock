@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<bindings xmlns="http://java.sun.com/xml/ns/jaxb" if-exists="true" version="2.1">
+  <!--
+
+Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.2.11 
+Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
+Generado el: 2022.08.29 a las 07:50:53 AM COT 
+
+  -->
+  <bindings xmlns:tns="http://tempuri.org/" if-exists="true" scd="x-schema::tns">
+    <schemaBindings map="false">
+      <package name="com.ctv.publisher.security.etb.wsdl"/>
+    </schemaBindings>
+    <bindings if-exists="true" scd="tns:CambiaPassword">
+      <class ref="com.ctv.publisher.security.etb.wsdl.CambiaPassword"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:CambiaPasswordResponse">
+      <class ref="com.ctv.publisher.security.etb.wsdl.CambiaPasswordResponse"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:ArrayOfString">
+      <class ref="com.ctv.publisher.security.etb.wsdl.ArrayOfString"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:ConsultaDatos">
+      <class ref="com.ctv.publisher.security.etb.wsdl.ConsultaDatos"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:ConsultaDatosResponse">
+      <class ref="com.ctv.publisher.security.etb.wsdl.ConsultaDatosResponse"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:ValidaACTIVO">
+      <class ref="com.ctv.publisher.security.etb.wsdl.ValidaACTIVO"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:ValidaACTIVOResponse">
+      <class ref="com.ctv.publisher.security.etb.wsdl.ValidaACTIVOResponse"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:Cons_Optenet">
+      <class ref="com.ctv.publisher.security.etb.wsdl.ConsOptenet"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:Cons_OptenetResponse">
+      <class ref="com.ctv.publisher.security.etb.wsdl.ConsOptenetResponse"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:Auth_TV">
+      <class ref="com.ctv.publisher.security.etb.wsdl.AuthTV"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:Auth_TVResponse">
+      <class ref="com.ctv.publisher.security.etb.wsdl.AuthTVResponse"/>
+    </bindings>
+  </bindings>
+</bindings>
